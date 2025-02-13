@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="./input.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
+</style>
+<title>Daphnes $10 Adventure - v2</title>
+
+<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+    data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
+    data-created-with="Twine + Twiorg"/>
+</head>
+<body class="bg-zinc-200 text-xl/8">
+  <div class="container mx-auto">
+    <div id="page" class="page mx-auto max-w-5xl m-10 p-10 bg-white drop-shadow-sm min-h-[800px] flex flex-col  justify-center">
+      <h1 class="title font-[Love_Ya_Like_A_Sister] font-bold text-4xl/20 lg:text-6xl/20 text-purple-800">Meet Daphne</h1>
+      <article class="md:flex md:flex-row font-[GB_Garramond]">
+	<div class="flex-5/8">
+        <p><p>
+.. a bright 7-year-old with a sparkle in her eyes and a mind full of wonder. Daphne loved making things, solving puzzles, and being a helping hand.
+
+</p>
+
+<p>
+One sunny Sunday, Daphne's parents sat her down for a chat. "Daphne," Dad began, "We have a fun game to play this week. It is called Daphne the Entrepreneur."
+
+</p>
+
+<p>
+"Onto-po-what?" Daphne giggled.
+
+</p>
+
+<p>
+Mom chuckled. "An entrepreneur is a person who is super-creative in solving problems. They see ways to help people out, make things better or more fun. And sometimes, they can even get money for solving the problem!"
+
+</p>
+
+<p>
+</div>
+ <div class="flex-3/8 flex-initial md:max-w-3/8">
+ <img alt="Meet Daphne" src="img/meetdaphne.png" class="object-contain">
+</div>
+<div>
+
+
+</p>
+
+<p>
+  </div>
+</article>
+<article>
+
+<p>
+<a href="2.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">continue</a>
+</p>
+
+
+</p>
+
+<script>
+const passageScript = function() {
+    window.story.state.showCash = false;
+    window.story.state.cash = 0;
+    window.story.state.sharingCaring = 0; // Sharing is Caring
+    window.story.state.smartSaver = 0; // Smart Saver
+    window.story.state.creativeThinker = 0; // Creative Thinker
+    window.story.state.helpingHand = 0; // Helping Hand
+    window.story.state.marketResearcher = 0; // Market Researcher
+    window.story.state.helpingPaws= 0; // Helping Paws
+    window.story.state.marketingWizard = 0; // Marketing Wizard
+};
+</script>
+</p>
+
+</article>
+<div id="stickers" class="flex flex-row flex-wrap mb-10 ml-10 mt-5 p-5">
+</div>
+<div id="piggybankcontainer" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <div class="w-full text-right bg-pink-200 p-2 rounded-t-xl">
+    <p class="mt-0">Daphne has $<span id="cashamount"></span></p>
+  </div>
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+  <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
+  </div>
+</div>
+</div>
+</div>
+<script src="./src/story.js"></script>
+</body>
+</html>

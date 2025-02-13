@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="./input.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
+</style>
+<title>Daphnes $10 Adventure - v2</title>
+
+<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+    data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
+    data-created-with="Twine + Twiorg"/>
+</head>
+<body class="bg-zinc-200 text-xl/8">
+  <div class="container mx-auto">
+    <div id="page" class="page mx-auto max-w-5xl m-10 p-10 bg-white drop-shadow-sm min-h-[800px] flex flex-col  justify-center">
+      <h1 class="title font-[Love_Ya_Like_A_Sister] font-bold text-4xl/20 lg:text-6xl/20 text-purple-800">Wednesday - Lemonade Stand!</h1>
+      <article class="md:flex md:flex-row font-[GB_Garramond]">
+	<div class="flex-5/8">
+        <p><p>
+Wednesday morning, Daphne and Dad carried a little table out to the front yard.  Daphne covered the table with the picnic blanket Dad gave her, and carefully setup the lemonade cups and pitcher.  She and Dad then put up her sign facing the street where everyone could see it.
+
+</p>
+
+<p>
+Then she waited.  And waited.  She peeked out to the street, feeling a mixture of excitement bubbling up and butterflies fluttering in her tummy.  Would anyone come?  What if nobody wanted her lemonade?  
+
+</p>
+
+<p>
+Just when Daphne started to think maybe lemonade wasn't such a super idea...  someone called out "One super lemonade, please!" It was Mrs. Gable with Sunny trotting happily beside her.  Mrs. Gable winked, handing Daphne a dollar.
+
+</p>
+
+<p>
+Soon, it wasn't just Mrs. Gable!  The morning got warmer, and people started strolling by.  A friendly mailman stopped for a cup, then a neighbor out for a morning walk, then a couple pushing a baby stroller!  "Best lemonade on the block!" one neighbor called out with a smile.  Each time someone bought a lemonade, Daphne's smile grew wider.
+
+</p>
+
+<p>
+By lunchtime, Daphne had sold NINE whole cups of lemonade!  She carefully poured the very last cup, not for a customer, but for someone extra special – her brother, Daiyan!  She knew he'd love a cool lemonade after playing outside.
+
+</p>
+
+<p>
+Daphne counted her earnings.  Nine dollars!  Plus, Mom gave her a bright red "Sharing is Caring" sticker and Daiyan gave her a big hug!  Daphne was a Lemonade Entrepreneur!
+
+</p>
+
+<p>
+  </div>
+</article>
+<article>
+
+<p>
+<a href="23.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">continue</a>
+</p>
+ 
+
+</p>
+
+
+<script>
+const passageScript = function() {
+    window.story.state.sharingCaring += 1;
+    window.story.state.cash += +9;
+};
+</script>
+</p>
+
+</article>
+<div id="stickers" class="flex flex-row flex-wrap mb-10 ml-10 mt-5 p-5">
+</div>
+<div id="piggybankcontainer" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <div class="w-full text-right bg-pink-200 p-2 rounded-t-xl">
+    <p class="mt-0">Daphne has $<span id="cashamount"></span></p>
+  </div>
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+  <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
+  </div>
+</div>
+</div>
+</div>
+<script src="./src/story.js"></script>
+</body>
+</html>

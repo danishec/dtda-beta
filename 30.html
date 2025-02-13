@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="./input.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
+</style>
+<title>Daphnes $10 Adventure - v2</title>
+
+<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+    data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
+    data-created-with="Twine + Twiorg"/>
+</head>
+<body class="bg-zinc-200 text-xl/8">
+  <div class="container mx-auto">
+    <div id="page" class="page mx-auto max-w-5xl m-10 p-10 bg-white drop-shadow-sm min-h-[800px] flex flex-col  justify-center">
+      <h1 class="title font-[Love_Ya_Like_A_Sister] font-bold text-4xl/20 lg:text-6xl/20 text-purple-800">Out with the Old, In with the New!</h1>
+      <article class="md:flex md:flex-row font-[GB_Garramond]">
+	<div class="flex-5/8">
+        <p><p>
+Daphne carefully chose three toys she no longer played with: the puzzle she'd solved many times, the spirograph and a RC car she hadn't used in a year. She put them in an open box and wrote a big "$1 Each" on its front with a purple marker. She placed the box in the front yard and went about playing soccer with Daiyan.
+
+</p>
+
+<p>
+A few neighbors came by, and Daphne successfully sold all three toys! She now had an extra $3. She visited the store later in the afternoon, and bought the Rainbow Unicorn hula hoop.  She was thrilled! Clearing up her toys earned her a Helping Hand sticker!
+
+</p>
+
+<p>
+  </div>
+</article>
+<article>
+
+<p>
+<a href="33.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">continue</a>
+</p>
+
+
+</p>
+
+<script>
+const passageScript = function() {
+    window.story.state.helpingHand += 1;
+    window.story.state.cash += -1;
+};
+</script>
+</p>
+
+</article>
+<div id="stickers" class="flex flex-row flex-wrap mb-10 ml-10 mt-5 p-5">
+</div>
+<div id="piggybankcontainer" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <div class="w-full text-right bg-pink-200 p-2 rounded-t-xl">
+    <p class="mt-0">Daphne has $<span id="cashamount"></span></p>
+  </div>
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+  <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
+  </div>
+</div>
+</div>
+</div>
+<script src="./src/story.js"></script>
+</body>
+</html>

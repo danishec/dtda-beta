@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="./input.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
+</style>
+<title>Daphnes $10 Adventure - v2</title>
+
+<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+    data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
+    data-created-with="Twine + Twiorg"/>
+</head>
+<body class="bg-zinc-200 text-xl/8">
+  <div class="container mx-auto">
+    <div id="page" class="page mx-auto max-w-5xl m-10 p-10 bg-white drop-shadow-sm min-h-[800px] flex flex-col  justify-center">
+      <h1 class="title font-[Love_Ya_Like_A_Sister] font-bold text-4xl/20 lg:text-6xl/20 text-purple-800">Tuesday: Colorful Hair</h1>
+      <article class="md:flex md:flex-row font-[GB_Garramond]">
+	<div class="flex-5/8">
+        <p><p>
+On Tuesday morning, Daphne walked to the park with Mom.  The park was buzzing with summer fun! As they got to the playground, Daphne noticed another girl wearing the same Rainbow Unicorn hair clip that she wore.  Daphne then started noticing all the different sparkly and colorful hair clips some of the kids were wearing. Daphne thought about the roses she received from Mrs. Gable yesterday. Suddenly an idea formed and started to grow in her mind, like a little seed sprouting from the soil. Daphne tugged on Mom's sleeve.
+
+</p>
+
+<p>
+"Mom," Daphne exclaimed in excitement, "If I made hair clips with real flowers.. Do you think kids would buy them? Like, if I used Mrs. Gable's roses?"
+
+</p>
+
+<p>
+Mom smiled.  "Flower hair clips!  That's a creative idea, Daphne!  But before you get started making them, let's be like smart entrepreneurs.  Let's ask around to see if kids would like them." 
+
+</p>
+
+<p>
+Mom explained that asking people first was called "market research" and suggested she talk to 5 kids and ask, "Would you buy a flower hair clip for $2 if I made them?" However, Daphne's mind was racing - She was so excited to start making the flower hair clips.
+
+</p>
+
+<p>
+What should Daphne do?
+
+</p>
+
+<p>
+  </div>
+</article>
+<article>
+
+<p>
+<a href="13.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">Ask 5 kids if they'd buy a flower hair clip for $2&nbsp;</a>
+</p>
+ 
+
+</p>
+
+<p>
+
+<p>
+<a href="14.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">Assume they'll love them and start making clips to sell right away&nbsp;</a>
+</p>
+ 
+
+</p>
+
+
+<script>
+const passageScript = function() {
+    window.story.state.cash += 0;
+};
+</script>
+</p>
+
+</article>
+<div id="stickers" class="flex flex-row flex-wrap mb-10 ml-10 mt-5 p-5">
+</div>
+<div id="piggybankcontainer" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <div class="w-full text-right bg-pink-200 p-2 rounded-t-xl">
+    <p class="mt-0">Daphne has $<span id="cashamount"></span></p>
+  </div>
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+  <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
+  </div>
+</div>
+</div>
+</div>
+<script src="./src/story.js"></script>
+</body>
+</html>

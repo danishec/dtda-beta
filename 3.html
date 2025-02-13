@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="./input.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
+</style>
+<title>Daphnes $10 Adventure - v2</title>
+
+<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+    data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
+    data-created-with="Twine + Twiorg"/>
+</head>
+<body class="bg-zinc-200 text-xl/8">
+  <div class="container mx-auto">
+    <div id="page" class="page mx-auto max-w-5xl m-10 p-10 bg-white drop-shadow-sm min-h-[800px] flex flex-col  justify-center">
+      <h1 class="title font-[Love_Ya_Like_A_Sister] font-bold text-4xl/20 lg:text-6xl/20 text-purple-800">Monday: Sunny, Bubbles and Blooms!</h1>
+      <article class="md:flex md:flex-row font-[GB_Garramond]">
+	<div class="flex-5/8">
+        <p><p>
+Monday was super hot!  Daphne was filling a glass with water when she heard noises outside and glanced out the window. It was Mrs. Gable and her golden retriever, Sunny, in her lovely flower garden. She was struggling with giving Sunny a bath.  Sunny was covered in soapy bubbles that he didn't seem to enjoy. Sunny shook and wiggled with gusto, and soapy water sprayed everywhere on Mrs. Gable and almost reaching her colorful flowers nearby.  Poor Mrs. Gable was laughing, but it was a bubbly mess everywhere. 
+
+</p>
+
+<p>
+Suddenly Daphne remembered Mom saying entrepreneurs solve problems. Mrs. Gable definitely had a problem – a slippery, soapy, wiggling dog who needed a bath in the scorching sun!  Daphne skipped outside and called out, "Mrs. Gable, need a hand with Sunny's bath?  Entrepreneurs solve problems, and maybe two sets of hands are better than one for a soapy dog!"
+
+</p>
+
+<p>
+Mrs. Gable looked up, soapy water dripping from her nose, and burst out laughing. "Oh, Daphne, you are an angel!  Yes, please! Sunny is being extra wiggly today."
+
+</p>
+
+<p>
+With Daphne's help, Mrs. Gable got Sunny clean and dry in no time. Putting away all the drenched towels, Mrs. Gable said with relief "Thank you Daphne! It would have taken me all morning to get Sunny clean.  How can I reward you for your help?"
+
+</p>
+
+<p>
+Daphne thought for a moment, looking around Mrs. Gable' beautiful garden. Entrepreneurs solve problems AND sometimes get money, but money is used to buy things so can't an entrepreneur get things in return? 
+
+</p>
+
+<p>
+What should Daphne ask for?
+
+</p>
+
+<p>
+  </div>
+</article>
+<article>
+
+<p>
+<a href="4.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">A small payment for her help</a>
+</p>
+ 
+
+</p>
+
+<p>
+
+<p>
+<a href="6.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">Some of Mrs. Gable's colorful flowers</a>
+</p>
+
+
+</p>
+
+<p>
+
+<p>
+<a href="5.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">Nothing. Daphne was just being helpful</a>
+</p>
+ 
+
+</p>
+
+
+<script>
+const passageScript = function() {
+    window.story.state.cash = 10;
+};
+</script>
+</p>
+
+</article>
+<div id="stickers" class="flex flex-row flex-wrap mb-10 ml-10 mt-5 p-5">
+</div>
+<div id="piggybankcontainer" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <div class="w-full text-right bg-pink-200 p-2 rounded-t-xl">
+    <p class="mt-0">Daphne has $<span id="cashamount"></span></p>
+  </div>
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+  <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
+  </div>
+</div>
+</div>
+</div>
+<script src="./src/story.js"></script>
+</body>
+</html>
