@@ -732,6 +732,10 @@
     font-size: var(--text-6xl);
     line-height: calc(var(--spacing) * 12);
   }
+  .text-5xl\/12 {
+    font-size: var(--text-5xl);
+    line-height: calc(var(--spacing) * 12);
+  }
   .text-xl\/8 {
     font-size: var(--text-xl);
     line-height: calc(var(--spacing) * 8);

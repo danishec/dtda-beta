@@ -16,9 +16,9 @@
 <body class="bg-zinc-200 text-xl/8">
   <div class="container mx-auto">
     <div id="page" class="page mx-auto max-w-5xl m-10 p-10 bg-white drop-shadow-sm min-h-[800px] flex flex-col  justify-center">
-      <h1 class="title font-[Love_Ya_Like_A_Sister] font-bold text-6xl/12 lg:text-6xl/20 text-purple-800">Rocks and Clips!</h1>
+      <h1 class="title font-[Love_Ya_Like_A_Sister] font-bold text-5xl/12 lg:text-6xl/20 text-purple-800">Rocks and Clips!</h1>
       <article class="font-[GB_Garramond]">
-	<div>
+	<div id="passage">
         <p><p>
 Daphne remembered seeing beautiful painted rocks in Mrs. Gable's flower garden. "Maybe I can give away something free to make people want to buy the clips!" she exclaimed.  She found smooth rocks in her backyard and some leftover paint.  She quickly painted 10 colorful rocks.  She added to her sign: "Buy a Flower Clip, Get a FREE Painted Rock!"
 
@@ -48,7 +48,7 @@ Daphne earned a Marketing Wizard sticker!
 
 <script>
 const passageScript = function() {
-    window.story.state.marketingMagic += +1;
+    window.story.state.marketingWizard += +1;
     window.story.state.cash += +6; // Sold 6 more clips at $1 each
 };
 </script>
