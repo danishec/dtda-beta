@@ -118,7 +118,7 @@ function getPassageIndex() {
 
 function hasVisited() {
   const passageIndex = getPassageIndex();
-  if(passageIndex in window.story.state.history)
+  if(window.story.state.history && passageIndex in window.story.state.history)
     return passageIndex;
   return false;
 }
