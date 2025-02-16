@@ -416,11 +416,11 @@
   b, strong {
     font-weight: bolder;
   }
-  p {
-      margin-top: calc(var(--spacing)*5);
-  }
   p.mt-0 {
       margin-top: 0;
+  }
+  p {
+      margin-top: calc(var(--spacing)*5);
   }
   code, kbd, samp, pre {
     font-family: var( --default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace );
@@ -575,9 +575,6 @@
   .mt-0 {
     margin-top: calc(var(--spacing) * 0);
   }
-  .mt-1 {
-    margin-top: calc(var(--spacing) * 1);
-  }
   .mt-1\.5 {
     margin-top: calc(var(--spacing) * 1.5);
   }
@@ -587,6 +584,9 @@
   .mt-5 {
     margin-top: calc(var(--spacing) * 5);
   }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
   .mt-20 {
     margin-top: calc(var(--spacing) * 20);
   }
@@ -595,9 +595,6 @@
   }
   .mr-3 {
     margin-right: calc(var(--spacing) * 3);
-  }
-  .mb-1 {
-    margin-bottom: calc(var(--spacing) * 1);
   }
   .mb-1\.5 {
     margin-bottom: calc(var(--spacing) * 1.5);
@@ -610,6 +607,9 @@
   }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
+  }
+  .ml-5 {
+    margin-left: calc(var(--spacing) * 5);
   }
   .ml-10 {
     margin-left: calc(var(--spacing) * 10);
@@ -625,9 +625,6 @@
   }
   .hidden {
     display: none;
-  }
-  .inline-block {
-    display: inline-block;
   }
   .inline-flex {
     display: inline-flex;
@@ -662,8 +659,17 @@
   .max-w-md {
     max-width: var(--container-md);
   }
+  .flex-3 {
+    flex: 3;
+  }
+  .flex-5 {
+    flex: 5;
+  }
   .flex-auto {
     flex: auto;
+  }
+  .flex-initial {
+    flex: 0 auto;
   }
   .flex-none {
     flex: none;
@@ -673,9 +679,6 @@
   }
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
-  }
-  .cursor-pointer {
-    cursor: pointer;
   }
   .resize {
     resize: both;
@@ -689,17 +692,14 @@
   .flex-wrap {
     flex-wrap: wrap;
   }
-  .items-baseline {
-    align-items: baseline;
-  }
   .justify-center {
     justify-content: center;
   }
   .self-center {
     align-self: center;
   }
-  .rounded-md {
-    border-radius: var(--radius-md);
+  .rounded-lg {
+    border-radius: var(--radius-lg);
   }
   .rounded-xl {
     border-radius: var(--radius-xl);
@@ -712,10 +712,6 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-2 {
-    border-style: var(--tw-border-style);
-    border-width: 2px;
-  }
   .border-3 {
     border-style: var(--tw-border-style);
     border-width: 3px;
@@ -724,26 +720,20 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 4px;
   }
-  .border-pink-300 {
-    border-color: var(--color-pink-300);
-  }
   .border-pink-400 {
     border-color: var(--color-pink-400);
   }
   .border-purple-800 {
     border-color: var(--color-purple-800);
   }
-  .bg-amber-100 {
-    background-color: var(--color-amber-100);
-  }
   .bg-pink-50 {
     background-color: var(--color-pink-50);
   }
+  .bg-pink-100 {
+    background-color: var(--color-pink-100);
+  }
   .bg-pink-200 {
     background-color: var(--color-pink-200);
-  }
-  .bg-violet-100 {
-    background-color: var(--color-violet-100);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -775,20 +765,11 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
-  .pr-2 {
-    padding-right: calc(var(--spacing) * 2);
-  }
-  .pl-2 {
-    padding-left: calc(var(--spacing) * 2);
-  }
   .text-justify {
     text-align: justify;
   }
   .text-right {
     text-align: right;
-  }
-  .indent-0 {
-    text-indent: calc(var(--spacing) * 0);
   }
   .indent-6 {
     text-indent: calc(var(--spacing) * 6);
@@ -802,6 +783,14 @@
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-6xl {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
   }
   .text-xl {
     font-size: var(--text-xl);
@@ -828,18 +817,6 @@
   }
   .underline {
     text-decoration-line: underline;
-  }
-  .decoration-amber-800 {
-    text-decoration-color: var(--color-amber-800);
-  }
-  .decoration-violet-800 {
-    text-decoration-color: var(--color-violet-800);
-  }
-  .decoration-1 {
-    text-decoration-thickness: 1px;
-  }
-  .underline-offset-3 {
-    text-underline-offset: 3px;
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
@@ -872,6 +849,11 @@
       width: calc(2/3 * 100%);
     }
   }
+  .md\:text-justify {
+      @media (width >= 48rem) {
+	  text-align: justify;
+      }
+  }
   .lg\:text-6xl\/20 {
     @media (width >= 64rem) {
       font-size: var(--text-6xl);
@@ -883,6 +865,52 @@ body {
   font-family: "Love Ya Like A Sister", "EB Garamond", serif;
   font-weight: 400;
   font-style: normal;
+}
+span.setting {
+  position: relative;
+  display: inline-block;
+  display: inline-flex;
+  cursor: pointer;
+  align-items: baseline;
+  border-radius: var(--radius-md);
+  background-color: var(--color-amber-100);
+  padding-right: calc(var(--spacing) * 2);
+  padding-left: calc(var(--spacing) * 2);
+  text-indent: calc(var(--spacing) * 0);
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-amber-800);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+span.ext-link {
+  position: relative;
+  display: inline-block;
+  display: inline-flex;
+  cursor: pointer;
+  align-items: baseline;
+  border-radius: var(--radius-md);
+  background-color: var(--color-violet-100);
+  padding-right: calc(var(--spacing) * 2);
+  padding-left: calc(var(--spacing) * 2);
+  text-indent: calc(var(--spacing) * 0);
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-violet-800);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+span.setting > svg {
+    align-self: center;
+    margin-right: 2px;
+    width: 24px;    
+    fill: var(--color-amber-600);
+    stroke: var(--color-amber-600);
+}
+span.ext-link > svg {
+  align-self: center;
+  margin-left: 2px;
+  width: 20px;
+  fill: var(--color-slate-600);
+  stroke: var(--color-violet-400);
 }
 @keyframes spin {
   to {
