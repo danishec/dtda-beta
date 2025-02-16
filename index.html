@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daphne's $10 Adventure!</title>
+<link rel="stylesheet" href="./input.css" />
+<!--<script src="https://unpkg.com/@tailwindcss/browser@4"></script>-->
+<script src="./src/story.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
+</style>
+</head>
+<body class="bg-zinc-200 text-xl/8">
+  <div class="container mx-auto">
+    <div id="page" class="page mx-auto max-w-5xl m-10 p-10 bg-white drop-shadow-sm min-h-[800px] flex flex-col justify-center relative">
+      <h1 class="title font-[Love_Ya_Like_A_Sister] font-bold text-4xl/20 lg:text-6xl/20 text-purple-800 mb-5">Preface </h1>	      
+      <article class="font-[GB_Garramond] text-justify">
+	<div class="">
+	  <p class="mt-0 indent-6 text-xl/8">
+	    A parent of two wonderful minds, I started this book with the goal of introducing them to the value of money. I quickly became enamored with the idea that what they should be learning and practicing is entrepreneurship. The educators of our young minds seem to be drawn to teaching them how to code; I too introduced my son Daiyan to Scratch and Kodable recently.  I'm not sure however that learning to code is as important as learning how to be creative in tackling the problems that affect us.  Coding is a tool to solve a subset of problems.  Entrepreneurship is a methodology for solving a bigger set of problems.  Entrepeneurship encompasses resourcefulness, collaboration, communication and tool building.</p>
+	  <p class="mt-0 indent-6 text-xl/8">
+	    To introduce  Entrepreneurship, the word and the practice, what better way then through an Interactive Fiction book. Interactive Fiction books allow the reader to make choices that affect the direction of the story, and thus experience multiple storylines within the same book. In this book, your young reader gets to follow along as our protagonist Daphne goes on a weeklong entrepreneurial adventure, which starts with Daphne receiving $10 from her parents. It navigates through several forks, the reader choosing Daphne's ultimate path of advancement. 
+	  </p>
+	  <p class="mt-0 indent-6 text-xl/8">
+	    Beyond entrpreneurship, the book includes an opportunity to teach or review basic arithmetic.  You have an option of <span id="hideCash" class="link bg-amber-100 relative inline-block rounded-md indent-0 pl-2 pr-2 underline decoration decoration-amber-800 cursor-pointer decoration-1 underline-offset-3 inline-flex items-baseline"><svg class="mr-1 hidden self-center fill-amber-600" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="18px"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>hiding the piggy bank</span> to allow the reader to calculate the cash Daphne has at any given moment. To aid the arithmetic, you may toggle <span id="cashAssist" class="link bg-amber-100 relative inline-block rounded-md indent-0 pl-2 pr-2 underline decoration decoration-amber-800 cursor-pointer decoration-1 underline-offset-3 inline-flex items-baseline"><svg class="mr-1 hidden self-center fill-amber-600" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="18px"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>arithmetic hints</span>, or better print free <span class="link bg-violet-100 relative inline-block rounded-md indent-0 pl-2 pr-2 underline decoration decoration-violet-800 cursor-pointer decoration-1 underline-offset-3 inline-flex items-baseline">sheets of play money<svg class="self-center stroke-violet-400 fill-slate-600" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg></span> and issue or take away notes from the reader in synchrony with the story. Finally, you may opt to <span id="showCash" class="link bg-amber-100 relative inline-block rounded-md indent-0 pl-2 pr-2 underline decoration decoration-amber-800 cursor-pointer decoration-1 underline-offset-3 inline-flex items-baseline"><svg class="mr-1 self-center fill-amber-600" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="18px"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>show the piggy bank</span> throughout the story. 
+	  </p>
+	  <p class="mt-0 indent-6 text-xl/8">
+	    My wife, a pediatrician, and I are well aware of the perils of excessive screen time. For this reason, I am making this book available for <span class="link bg-violet-100 relative inline-block rounded-md indent-0 pl-2 pr-2 underline decoration decoration-violet-800 cursor-pointer decoration-1 underline-offset-3 inline-flex items-baseline">static screens<svg class="self-center stroke-violet-400 fill-slate-600" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg></span> (eg. Kindle) in addition to taking <span class="link bg-violet-100 relative inline-block rounded-md indent-0 pl-2 pr-2 underline decoration decoration-violet-800 cursor-pointer decoration-1 underline-offset-3 inline-flex items-baseline">pre-orders<svg class="self-center stroke-violet-400 fill-slate-600" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg></span> for a physical book</span>. The distractions are kept to a minimum in the web app and mobile <span class="link bg-violet-100 relative inline-block rounded-md indent-0 pl-2 pr-2 underline decoration decoration-violet-800 cursor-pointer decoration-1 underline-offset-3 inline-flex items-baseline">(android)<svg class="self-center stroke-violet-400 fill-slate-600" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg></span> <span class="link bg-violet-100 relative inline-block rounded-md indent-0 pl-2 pr-2 underline decoration decoration-violet-800 cursor-pointer decoration-1 underline-offset-3 inline-flex items-baseline">(ios)<svg class="self-center stroke-violet-400 fill-slate-600" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg></span> - There are no animations or sounds in this book.
+	    </p>
+	</div>
+      </article>
+      <article>
+	<p class="mt-5">
+	  <a href="./1.html" class="border-b-4 border-purple-800 hover:border-fuchsia-400">Begin the story..</a>
+	</p>
+      </article>
+    </div>
+  </div>
+</body>
+</html>

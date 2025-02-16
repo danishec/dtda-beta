@@ -138,49 +138,49 @@ function populateStickers() {
 
     for (let i = 0; i < hhStickerCount; i++) {
       const imgElement = document.createElement('img');
-      imgElement.className = 'w-[80px] flex-none mr-3 drop-shadow-sm';
+      imgElement.className = 'w-[80px] flex-none mr-3 mt-1.5 mb-1.5 drop-shadow-sm';
       imgElement.src = './img/hh2.svg';
       stickerContainer.appendChild(imgElement);
     }
 
     for (let i = 0; i < scStickerCount; i++) {
       const imgElement = document.createElement('img');
-      imgElement.className = 'w-[80px] flex-none mr-3 drop-shadow-sm';
+      imgElement.className = 'w-[80px] flex-none mr-3 mt-1.5 mb-1.5 drop-shadow-sm';
       imgElement.src = './img/sc2.svg';
       stickerContainer.appendChild(imgElement);
     }
 
     for (let i = 0; i < ssStickerCount; i++) {
       const imgElement = document.createElement('img');
-      imgElement.className = 'w-[80px] flex-none mr-3 drop-shadow-sm';
+      imgElement.className = 'w-[80px] flex-none mr-3 mt-1.5 mb-1.5 drop-shadow-sm';
       imgElement.src = './img/ss.svg';
       stickerContainer.appendChild(imgElement);
     }
 
     for (let i = 0; i < ctStickerCount; i++) {
       const imgElement = document.createElement('img');
-      imgElement.className = 'w-[80px] flex-none mr-3 drop-shadow-sm';
+      imgElement.className = 'w-[80px] flex-none mr-3 mt-1.5 mb-1.5 drop-shadow-sm';
       imgElement.src = './img/ct.svg';
       stickerContainer.appendChild(imgElement);
     }
 
     for (let i = 0; i < hpStickerCount; i++) {
       const imgElement = document.createElement('img');
-      imgElement.className = 'w-[80px] flex-none mr-3 drop-shadow-sm';
+      imgElement.className = 'w-[80px] flex-none mr-3 mt-1.5 mb-1.5 drop-shadow-sm';
       imgElement.src = './img/hp.svg';
       stickerContainer.appendChild(imgElement);
     }
 
     for (let i = 0; i < mrStickerCount; i++) {
       const imgElement = document.createElement('img');
-      imgElement.className = 'w-[80px] flex-none mr-3 drop-shadow-sm';
+      imgElement.className = 'w-[80px] flex-none mr-3 mt-1.5 mb-1.5 drop-shadow-sm';
       imgElement.src = './img/mr.svg';
       stickerContainer.appendChild(imgElement);
     }
 
     for (let i = 0; i < mwStickerCount; i++) {
       const imgElement = document.createElement('img');
-      imgElement.className = 'w-[80px] flex-none mr-3 drop-shadow-sm';
+      imgElement.className = 'w-[80px] flex-none mr-3 mt-1.5 mb-1.5 drop-shadow-sm';
       imgElement.src = './img/mw.svg';
       stickerContainer.appendChild(imgElement);
     }
