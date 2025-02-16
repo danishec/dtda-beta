@@ -1,4 +1,6 @@
 function initializePage() {
+  const storageKey = 'story.dtda.v0.4';
+  
   window.story = window.story || {};
   window.story.state = window.story.state || {};
 
@@ -21,7 +23,7 @@ function initializePage() {
 
   window.story.state.loadDataFromLocalStorage = function() {
     console.log("loadDataFromLocalStorage: Function called"); // Debug log
-    const storedData = localStorage.getItem('story.daphne');
+    const storedData = localStorage.getItem(storageKey);
     if (storedData) {
       const data = JSON.parse(storedData);
       this.cash = data.cash;
@@ -77,7 +79,7 @@ function initializePage() {
     this.history[passageIndex] = structuredClone(data);    
     const history = {history : structuredClone(this.history)};
     const pkgData = Object.assign(data, history);
-    localStorage.setItem('story.daphne', JSON.stringify(pkgData));
+    localStorage.setItem(storageKey, JSON.stringify(pkgData));
     console.log("Saved story data"); // Debug log          
   };
 
