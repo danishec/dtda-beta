@@ -1,5 +1,5 @@
 function initializePage() {
-  const storageKey = 'story.dtda.v0.4';
+  const storageKey = 'story.dtda.v0.41';
   
   window.story = window.story || {};
   window.story.state = window.story.state || {};
@@ -18,8 +18,7 @@ function initializePage() {
   window.story.state.marketingWizard = 0; //Marketing Wizard
 
   // history
-  window.story.state.history = {};
-
+  window.story.state.history = window.story.state.history || {};
 
   window.story.state.loadDataFromLocalStorage = function() {
     console.log("loadDataFromLocalStorage: Function called"); // Debug log
@@ -55,7 +54,6 @@ function initializePage() {
       this.marketResearcher = siData.marketResearcher;
       this.helpingPaws = siData.helpingPaws;
       this.marketingWizard = siData.marketingWizard;
-      this.history = siData.history || {};
       this.showCash = siData.showCash;
       console.log("Loaded saved story data for ", passageIndex); // Debug log      
     }
@@ -75,33 +73,50 @@ function initializePage() {
       helpingPaws: this.helpingPaws,
       marketingWizard: this.marketingWizard,
       showCash: this.showCash,
+      //previousPassage: this.previousPassage
     };
-    this.history[passageIndex] = structuredClone(data);    
-    const history = {history : structuredClone(this.history)};
-    const pkgData = Object.assign(data, history);
-    localStorage.setItem(storageKey, JSON.stringify(pkgData));
+    
+    if ( passageIndex ) {
+      this.history = this.history || {};
+      this.history[passageIndex] = structuredClone(data);
+    }
+    const passagesHistory = { history : (this.history || {}) };
+    const dataPackage = Object.assign(data, passagesHistory);
+    localStorage.setItem(storageKey, JSON.stringify(dataPackage));
     console.log("Saved story data"); // Debug log          
   };
 
+  // if on the index page, clear the localstorage  
+  if ( isIndex() ) 
+    localStorage.setItem(storageKey, JSON.stringify({}));
+  else 
+    window.story.state.loadDataFromLocalStorage();
 
-  window.story.state.loadDataFromLocalStorage();
   const visitedPassage = hasVisited();
-  const passageIndex = getPassageIndex();  
-  if ( visitedPassage ) { // don't run passageScript
+  const passageIndex = getPassageIndex();
+  if ( visitedPassage && passageIndex ) { // don't run passageScript
     window.story.state.loadDataFromHistory(passageIndex);
+    populateCash();
+    populateStickers();
+    window.story.state.saveDataToLocalStorage(passageIndex);          
   } 
   else { // reader hasn't visited current passage before
     if (typeof passageScript === 'function') {
+      console.log("inline function called");
       passageScript(); // call the inline script function in the page
+      populateCash();
+      populateStickers();
+      window.story.state.saveDataToLocalStorage(passageIndex);          
     }
   }
-  populateCash();
-  populateStickers();
-  window.story.state.saveDataToLocalStorage(passageIndex);          
   
 }
 
 window.onload = initializePage;
+
+window.addEventListener("popstate", (event) => {
+  console.log("popstate called");
+});
 
 function getPassageIndex() {
   const path = window.location.pathname;
@@ -118,10 +133,29 @@ function getPassageIndex() {
     
 }
 
+function isIndex() {
+  const path = window.location.pathname;
+  let fileName = path.substring(path.lastIndexOf('/') + 1);
+  const dotIndex = fileName.lastIndexOf('.');
+
+  if (dotIndex > 0) {
+    fileName = fileName.substring(0, dotIndex);
+  }
+  if (fileName === 'index') 
+    return true;
+
+  return false;
+}
+/*
+ hasVisited doesn't but should account for the following possibilities:
+ + A user may arrive at a passage previously visited from a different path. In this case, the state should be calculated afresh
+*/  
 function hasVisited() {
   const passageIndex = getPassageIndex();
-  if(window.story.state.history && passageIndex in window.story.state.history)
+
+  if(window.story.state.history && passageIndex in window.story.state.history) 
     return passageIndex;
+
   return false;
 }
 
