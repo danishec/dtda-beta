@@ -1,5 +1,5 @@
 function initializePage() {
-  const storageKey = 'story.dtda.v0.41';
+  const storageKey = 'story.dtda.v0.4.2';
   
   window.story = window.story || {};
   window.story.state = window.story.state || {};
@@ -73,7 +73,6 @@ function initializePage() {
       helpingPaws: this.helpingPaws,
       marketingWizard: this.marketingWizard,
       showCash: this.showCash,
-      //previousPassage: this.previousPassage
     };
     
     if ( passageIndex ) {
@@ -109,14 +108,30 @@ function initializePage() {
       window.story.state.saveDataToLocalStorage(passageIndex);          
     }
   }
+
+  document.addEventListener('click', function(event) {
+    if (event.target.tagName === 'A') {
+      // event.preventDefault();
+
+      const passageFile = event.target.getAttribute('href');
+      // Extract the passage name (filename without extension)
+      const passageName = passageFile.substring(0, passageFile.lastIndexOf('.'));
+      const currentPassage = getPassageIndex();
+
+      console.log("Passage file:", passageName); // Debugging message
+
+      if (window.story.state.history && window.story.state.history[passageName]) {
+	console.log("Deleting history for ", passageName);
+        delete window.story.state.history[passageName];
+	window.story.state.saveDataToLocalStorage(currentPassage);
+      }
+    }
+  });
+
   
 }
 
 window.onload = initializePage;
-
-window.addEventListener("popstate", (event) => {
-  console.log("popstate called");
-});
 
 function getPassageIndex() {
   const path = window.location.pathname;
@@ -141,23 +156,23 @@ function isIndex() {
   if (dotIndex > 0) {
     fileName = fileName.substring(0, dotIndex);
   }
-  if (fileName === 'index') 
+  if (fileName === 'index' || fileName === '') {
+    console.log("Erasing Local Storage.. ");
     return true;
+  }
 
   return false;
 }
 /*
  hasVisited doesn't but should account for the following possibilities:
- + A user may arrive at a passage previously visited from a different path. In this case, the state should be calculated afresh
+ + A user may arrive at a passage previously visited from a different story branch. In this case, the state should be calculated afresh
+ The solution I'm implementing is to remove the passage from index, if a user is clicking a link to get to that passage, vs using the browser back or forward buttons
 */  
 function hasVisited() {
   const passageIndex = getPassageIndex();
-
-  if(window.story.state.history && passageIndex in window.story.state.history) 
-    return passageIndex;
-
-  return false;
+  return !!(window.story.state.history && passageIndex in window.story.state.history); // Using !! to explicitly return boolean
 }
+
 
 function populateStickers() {
   const hhStickerCount = window.story.state.helpingHand;
