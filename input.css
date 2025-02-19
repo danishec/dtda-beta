@@ -781,6 +781,9 @@
   .indent-6 {
     text-indent: calc(var(--spacing) * 6);
   }
+  .indent-10 {
+    text-indent: calc(var(--spacing) * 10);
+  }
   .font-\[GB_Garramond\] {
     font-family: GB Garramond;
   }
@@ -860,6 +863,11 @@
       @media (width >= 48rem) {
 	  text-align: justify;
       }
+  }
+  .md\:p-10 {
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 10);
+    }
   }
   .lg\:text-6xl\/20 {
     @media (width >= 64rem) {

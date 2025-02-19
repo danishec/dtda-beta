@@ -132,11 +132,18 @@ function initializePage() {
     }
   });
   document.addEventListener('click', function(event) {
-    if (event.target.tagName === 'SPAN' && event.target.classList.contains('setting')) {
+
+    let clickedSpan = 0;
+    
+    if ((event.target.tagName === 'SPAN' && event.target.classList.contains('setting'))	||
+	(event.target.parentElement.tagName === 'SPAN' && event.target.parentElement.classList.contains('setting')))	{
 
       console.log("setting span clicked");
       // Get the SVG element within the clicked setting span
-      const clickedSpan = event.target;
+      if (event.target.tagName === 'SPAN') 
+	clickedSpan = event.target;
+      else
+	clickedSpan = event.target.parentElement;
 
       
       if(!clickedSpan.classList.contains('selected')) {
