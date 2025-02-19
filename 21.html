@@ -7,9 +7,9 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
 </style>
-<title>Daphnes $10 Adventure - v2</title>
+<title>Daphne's $10 Adventure</title>
 
-<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+<meta name="Daphne's $10 Adventure" content="A interactive fiction story"
     data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
     data-created-with="Twine + Twiorg"/>
 </head>
@@ -25,7 +25,7 @@
 </p>
 
 <p>
-That afternoon, Daphne and Dad set up her table near the park entrance.  It was much busier!  Kids were constantly running in and out of the park with their families.  People noticed her colorful clips right away!  Daphne sold the remaining 7 clips in just one hour!  She learned that where you sell your product can make a HUGE difference! Daphne earned a Marketing Wizard sticker for finding a better location for her hair clip stand. 
+That afternoon, Daphne and Dad set up her table near the park entrance.  It was much busier!  Kids were constantly running in and out of the park with their families.  People noticed her colorful clips right away!  Daphne sold the remaining 7 clips in just one hour!  She learned that where you sell your product can make a HUGE difference! Daphne earned a Marketing Wizard sticker for finding a better location for her hair clip stand.
 
 </p>
 
@@ -44,6 +44,9 @@ That afternoon, Daphne and Dad set up her table near the park entrance.  It was 
 <script>
 const passageScript = function() {
     window.story.state.marketingWizard += +1;
+    window.story.state.cashOperations = [
+      { operation: "add", amount: 7, description: "from hair clip sales"}
+    ];
     window.story.state.cash += +7; // Sold remaining 8 clips at $1 each
 };
 </script>
@@ -60,6 +63,10 @@ const passageScript = function() {
   <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
   </div>
 </div>
+<div id="piggybankcontainer-mathassist" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+</div>
+
 </div>
 </div>
 <script src="./src/story.js"></script>

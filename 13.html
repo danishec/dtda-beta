@@ -7,9 +7,9 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
 </style>
-<title>Daphnes $10 Adventure - v2</title>
+<title>Daphne's $10 Adventure</title>
 
-<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+<meta name="Daphne's $10 Adventure" content="A interactive fiction story"
     data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
     data-created-with="Twine + Twiorg"/>
 </head>
@@ -55,7 +55,7 @@ Kid 5: "Maybe for $1. $2 is too much."
 </p>
 
 <p>
-Daphne learned that some kids liked the idea, but $2 might be too much, and not everyone was interested in hair clips.  With the market research done, she rushed home and, with Mom's help, used some of her $10 to buy hair clips and glue. Daphne opted for the cheaper black clips which were $2 and glue which was $1. 
+Daphne learned that some kids liked the idea, but $2 might be too much, and not everyone was interested in hair clips.  With the market research done, she rushed home and, with Mom's help, used some of her $10 to buy hair clips and glue. Daphne opted for the cheaper black clips which were $2 and glue which was $1.
 
 </p>
 
@@ -83,7 +83,11 @@ Daphne earned a Market Research sticker!
 
 <script>const passageScript = function() {
     window.story.state.marketResearcher += 1;
-    window.story.state.cash += -3;
+    window.story.state.cashOperations = [
+      { operation: "subtract", amount: 2, description: "on cheaper hair clips" },
+      { operation: "subtract", amount: 1, description: "on glue" }
+    ];
+      window.story.state.cash += -3;
 };</script>
 </p>
 
@@ -98,6 +102,10 @@ Daphne earned a Market Research sticker!
   <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
   </div>
 </div>
+<div id="piggybankcontainer-mathassist" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+</div>
+
 </div>
 </div>
 <script src="./src/story.js"></script>

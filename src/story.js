@@ -1,12 +1,12 @@
 function initializePage() {
-  const storageKey = 'story.dtda.v0.4.2';
+  const storageKey = 'story.dtda.v0.5.0';
   
   window.story = window.story || {};
   window.story.state = window.story.state || {};
 
   // cash
   window.story.state.cash = 0;
-  window.story.state.showCash = false;
+  window.story.state.showCash = 1;
 
   // stickers
   window.story.state.sharingCaring = 0; // Sharing is Caring
@@ -19,6 +19,7 @@ function initializePage() {
 
   // history
   window.story.state.history = window.story.state.history || {};
+  window.story.state.cashOperations = [];
 
   window.story.state.loadDataFromLocalStorage = function() {
     console.log("loadDataFromLocalStorage: Function called"); // Debug log
@@ -55,6 +56,7 @@ function initializePage() {
       this.helpingPaws = siData.helpingPaws;
       this.marketingWizard = siData.marketingWizard;
       this.showCash = siData.showCash;
+      this.cashOperations = siData.cashOperations;
       console.log("Loaded saved story data for ", passageIndex); // Debug log      
     }
     else
@@ -73,6 +75,7 @@ function initializePage() {
       helpingPaws: this.helpingPaws,
       marketingWizard: this.marketingWizard,
       showCash: this.showCash,
+      cashOperations: this.cashOperations
     };
     
     if ( passageIndex ) {
@@ -85,9 +88,10 @@ function initializePage() {
     console.log("Saved story data"); // Debug log          
   };
 
-  // if on the index page, clear the localstorage  
-  if ( isIndex() ) 
-    localStorage.setItem(storageKey, JSON.stringify({}));
+  if ( isIndex() ) {
+    localStorage.setItem(window.storageKey, JSON.stringify({}));   // if on the index page, clear the localstorage  
+    indexFunctions();
+  }
   else 
     window.story.state.loadDataFromLocalStorage();
 
@@ -127,11 +131,58 @@ function initializePage() {
       }
     }
   });
+  document.addEventListener('click', function(event) {
+    if (event.target.tagName === 'SPAN' && event.target.classList.contains('setting')) {
+
+      console.log("setting span clicked");
+      // Get the SVG element within the clicked setting span
+      const clickedSpan = event.target;
+
+      
+      if(!clickedSpan.classList.contains('selected')) {
+
+	clickedSpan.classList.add('selected');
+
+	const allSettingSpans = document.querySelectorAll('span.setting');
+	allSettingSpans.forEach(settingSpan => {
+	  if (settingSpan !== clickedSpan) {
+	    settingSpan.classList.remove('selected');
+	  }
+	});
+
+	const spanId = clickedSpan.id;
+
+	switch (spanId) {
+
+	case  "hideCash":
+	  window.story.state.showCash = 0;
+	  break;
+	case "showCash":
+	  window.story.state.showCash = 1;
+	  break;
+	case "cashAssist":
+	  window.story.state.showCash = 2;	  
+	  break;
+	case "doubleEntryBK":
+	  window.story.state.showCash = 3;
+	  break;
+	default:
+	  window.story.state.showCash = 1;
+	  break;
+	}
+
+	window.story.state.saveDataToLocalStorage(false);
+	
+      }
+    }
+  });
 
   
 }
 
 window.onload = initializePage;
+
+
 
 function getPassageIndex() {
   const path = window.location.pathname;
@@ -147,6 +198,8 @@ function getPassageIndex() {
     return fileName;
     
 }
+
+
 
 function isIndex() {
   const path = window.location.pathname;
@@ -172,6 +225,13 @@ function hasVisited() {
   const passageIndex = getPassageIndex();
   return !!(window.story.state.history && passageIndex in window.story.state.history); // Using !! to explicitly return boolean
 }
+
+
+
+function indexFunctions() {
+    window.story.state.saveDataToLocalStorage(false); // save default settings
+}
+
 
 
 function populateStickers() {
@@ -242,13 +302,36 @@ function populateStickers() {
 
 function populateCash() {
 
-  const cashCount = window.story.state.cash;
   const showCash = window.story.state.showCash;
+
+  switch (showCash) {
+  case 0:
+    break;
+  case 1:
+    showFinalCashAmount();
+    break;
+  case 2:
+    showCashWithArithmeticHints();
+    break;
+  case 3:
+    break;
+  default:
+    showFinalCashAmount();
+    break;
+  }
+
+
+}
+
+function showFinalCashAmount() {
+
+  const cashCount = window.story.state.cash;
   const piggyBank = document.getElementById('piggybank');
   const cashText = document.getElementById('cashamount');
   const piggyBankContainer = document.getElementById('piggybankcontainer');    
 
-  if (showCash) {
+
+  if (!window.story.state.hidePiggyBank ) { //hidePiggyBank is a passage-specific toggle
     for (let i = 0; i < cashCount; i++) {
       const cashElement = document.createElement('img');
       cashElement.src = './img/one-cash.svg';
@@ -257,8 +340,112 @@ function populateCash() {
     }
     cashText.textContent = cashCount.toString();
     piggyBankContainer.classList.remove("hidden");
-    
-    
   }
+
+}
+
+function showCashWithArithmeticHints() {
+
+  const piggyBankContainer = document.getElementById('piggybankcontainer-mathassist');
+  const newCash = window.story.state.cash;
+  const cashOps = window.story.state.cashOperations;
+  let prevCash = newCash, cashTracker = newCash, spentCash = [], spentCashDesc = [], earnedCash = [], earnedCashDesc = [];
+
+
+  if ( cashOps.length === 0 )
+    return false;
+
+  cashOps.forEach( op => {
+
+    if ( op.operation === "subtract" ) {
+      prevCash = prevCash + op.amount;
+      spentCash.push(op.amount);
+      spentCashDesc.push(op.description);
+    }
+
+    if ( op.operation === "add" ) {
+      prevCash = prevCash - op.amount;      
+      earnedCash.push(op.amount);
+      earnedCashDesc.push(op.description);
+    }
+    
+  });
+
+  cashTracker = prevCash;
+
+  spentCash.forEach((spend, index) => {
+    
+    const result = cashTracker - spend;
+    const templ = document.createElement('template');
+    const markup = `
+<div class="w-full text-right bg-pink-200 p-2 ${(index === 0) ? 'rounded-t-xl' : ''}">
+  <p class="mt-0">Daphne ${(index > 0) ? 'then ' : ''}had $${cashTracker}. She spent $${spend} ${spentCashDesc[index]}</p>
+ </div>
+ <div id="piggybank-mathassist-subtract-${index}" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
+ </div>
+ <div class="w-full text-right bg-pink-200 p-2">
+   <p class="mt-0">${cashTracker} - ${spend} = ${result}</p>
+ </div>
+`;
+    templ.innerHTML = markup;
+    piggyBankContainer.append(templ.content);
+    const pbSubtract = document.getElementById(`piggybank-mathassist-subtract-${index}`);
+    
+    for (let i = 0; i < (cashTracker - spend); i++) {
+      const cashElement = document.createElement('img');
+      cashElement.src = './img/one-cash.svg';
+      cashElement.className = 'w-[60px] flex-none mr-3 mt-2 mb-2 drop-shadow-sm';
+      pbSubtract.appendChild(cashElement);
+    }
+    for (let i = 0; i < spend; i++) {
+      const cashElement = document.createElement('img');
+      cashElement.src = './img/one-cash-spent.svg';
+      cashElement.className = 'w-[60px] flex-none mr-3 mt-2 mb-2 drop-shadow-sm';
+      pbSubtract.appendChild(cashElement);
+    }
+    cashTracker = cashTracker - spend;
+
+  });
+
+  earnedCash.forEach( (earned, index) => {
+    const result = cashTracker + earned;
+    const templ = document.createElement('template');
+    const markup = `
+<div class="w-full text-right bg-pink-200 p-2 ${(index === 0 && spentCash.length === 0) ? 'rounded-t-xl' : ''}">
+  <p class="mt-0">Daphne ${(index > 0) ? 'then ' : ''}earned $${earned} ${earnedCashDesc[index]}</p>
+ </div>
+ <div id="piggybank-mathassist-add-${index}" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
+ </div>
+ <div class="w-full text-right bg-pink-200 p-2">
+   <p class="mt-0">${cashTracker} + ${earned} = ${result}</p>
+ </div>
+`;
+    templ.innerHTML = markup;
+    piggyBankContainer.append(templ.content);
+    const pbAdd = document.getElementById(`piggybank-mathassist-add-${index}`);
+    for (let i = 0; i < (cashTracker); i++) {
+      const cashElement = document.createElement('img');
+      cashElement.src = './img/one-cash.svg';
+      cashElement.className = 'w-[60px] flex-none mr-3 mt-2 mb-2 drop-shadow-sm';
+      pbAdd.appendChild(cashElement);
+    }
+    for (let i = 0; i < earned; i++) {
+      const cashElement = document.createElement('img');
+      cashElement.src = './img/one-cash-new.svg';
+      cashElement.className = 'w-[60px] flex-none mr-3 mt-2 mb-2 drop-shadow-sm border-2 border-blue-600';
+      pbAdd.appendChild(cashElement);
+    }
+    cashTracker = cashTracker + earned;
+    
+  });
+
+  const templ = document.createElement('template');
+  templ.innerHTML = `<div class="w-full text-right bg-pink-200 p-2 rounded-b-xl">
+  <p class="mt-0">Daphne now has $${newCash}</p>
+</div>`;
+
+  piggyBankContainer.append(templ.content);
+
+  piggyBankContainer.classList.remove("hidden");  
 
 }

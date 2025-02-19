@@ -7,9 +7,9 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
 </style>
-<title>Daphnes $10 Adventure - v2</title>
+<title>Daphne's $10 Adventure</title>
 
-<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+<meta name="Daphne's $10 Adventure" content="A interactive fiction story"
     data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
     data-created-with="Twine + Twiorg"/>
 </head>
@@ -20,7 +20,7 @@
       <article class="font-[GB_Garramond]">
 	<div id="passage">
         <p><p>
-Daphne gently stroked Cinnamon's soft fur.  "Time for a trip to the pet store, little buddy," she whispered to her guinea pig.  Cinnamon's hay bin was almost empty, and his cage litter needed changing.  As much as she was loving the Entrepreneur Adventure, Daphne decided to take a break to care for Cinnamon! Daphne asked Dad to drive her to PetsPlus. 
+Daphne gently stroked Cinnamon's soft fur.  "Time for a trip to the pet store, little buddy," she whispered to her guinea pig.  Cinnamon's hay bin was almost empty, and his cage litter needed changing.  As much as she was loving the Entrepreneur Adventure, Daphne decided to take a break to care for Cinnamon! Daphne asked Dad to drive her to PetsPlus.
 
 </p>
 
@@ -42,7 +42,7 @@ What should Daphne do?
 <p>
 <a href="24.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">Donate $2 to the animal shelter</a>
 </p>
- 
+
 
 </p>
 
@@ -57,9 +57,7 @@ What should Daphne do?
 
 <script>
 const passageScript = function() {
-    window.story.state.sharingCaring += 0;
-    window.story.state.helpingHand += 0;    
-    window.story.state.cash += 0;
+
 };
 </script>
 </p>
@@ -75,6 +73,10 @@ const passageScript = function() {
   <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
   </div>
 </div>
+<div id="piggybankcontainer-mathassist" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+</div>
+
 </div>
 </div>
 <script src="./src/story.js"></script>

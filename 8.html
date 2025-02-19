@@ -7,9 +7,9 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
 </style>
-<title>Daphnes $10 Adventure - v2</title>
+<title>Daphne's $10 Adventure</title>
 
-<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+<meta name="Daphne's $10 Adventure" content="A interactive fiction story"
     data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
     data-created-with="Twine + Twiorg"/>
 </head>
@@ -57,7 +57,7 @@ What project should Daphne choose?
 <p>
 <a href="10.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">Buy the lemons and plan for a Lemonade Stand Adventure</a>
 </p>
- 
+
 
 </p>
 
@@ -66,12 +66,13 @@ What project should Daphne choose?
 <p>
 <a href="11.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">Buy the colorful roses for a fun flower project</a>
 </p>
- 
+
 
 </p>
 
 <script>const passageScript = function() {
     window.story.state.cash += -2;
+    window.story.state.cashOperations = [{operation: "subtract", amount: 2, description: "on lemonade bottle"}];
 };</script>
 </p>
 
@@ -86,6 +87,10 @@ What project should Daphne choose?
   <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
   </div>
 </div>
+<div id="piggybankcontainer-mathassist" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+</div>
+
 </div>
 </div>
 <script src="./src/story.js"></script>

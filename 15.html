@@ -7,9 +7,9 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&display=swap');
 </style>
-<title>Daphnes $10 Adventure - v2</title>
+<title>Daphne's $10 Adventure</title>
 
-<meta name="Daphnes $10 Adventure - v2" content="A interactive fiction story"
+<meta name="Daphne's $10 Adventure" content="A interactive fiction story"
     data-ifid="2DADFBDA-06DE-4776-B912-AC93F4F08CCA"
     data-created-with="Twine + Twiorg"/>
 </head>
@@ -25,7 +25,7 @@ Wednesday morning, Daphne and Dad carried a little table out to the front yard. 
 </p>
 
 <p>
-Then she waited.  And waited.  She peeked out to the street, feeling a mixture of excitement bubbling up and butterflies fluttering in her tummy.  Would anyone come?  What if nobody wanted her lemonade?  
+Then she waited.  And waited.  She peeked out to the street, feeling a mixture of excitement bubbling up and butterflies fluttering in her tummy.  Would anyone come?  What if nobody wanted her lemonade?
 
 </p>
 
@@ -57,7 +57,7 @@ Daphne counted her earnings.  Nine dollars!  Plus, Mom gave her a bright red "Sh
 <p>
 <a href="23.html" class="border-b-4 border-purple-800 font-[Love_Ya_Like_A_Sister] hover:border-fuchsia-400">continue</a>
 </p>
- 
+
 
 </p>
 
@@ -65,6 +65,9 @@ Daphne counted her earnings.  Nine dollars!  Plus, Mom gave her a bright red "Sh
 <script>
 const passageScript = function() {
     window.story.state.sharingCaring += 1;
+    window.story.state.cashOperations = [
+        {operation: "add", amount: 9, description: "from lemonade sales"}
+    ];
     window.story.state.cash += +9;
 };
 </script>
@@ -81,6 +84,10 @@ const passageScript = function() {
   <div id="piggybank" class="flex flex-row flex-wrap max-w-[384px] box-content p-3 justify-center mx-auto">
   </div>
 </div>
+<div id="piggybankcontainer-mathassist" class="hidden bg-pink-100 border-3 border-pink-400 rounded-xl ml-10 mt-5 max-w-md justify-center relative z-0">
+  <img src="./img/piggybank.svg" class="w-[80px] flex-none z-10 absolute -top-[40px] -left-[40px]" />
+</div>
+
 </div>
 </div>
 <script src="./src/story.js"></script>
