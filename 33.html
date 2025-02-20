@@ -15,7 +15,7 @@
 </head>
 <body class="bg-zinc-200 text-xl/8">
   <div class="container mx-auto">
-    <div id="page" class="page mx-auto max-w-5xl m-10 p-10 bg-white drop-shadow-sm min-h-[800px] flex flex-col  justify-center">
+    <div id="page" class="page mx-auto max-w-5xl m-10 p-5 md:p-10 bg-white drop-shadow-sm min-h-[800px] flex flex-col  justify-center">
       <h1 class="title font-[Love_Ya_Like_A_Sister] font-bold text-5xl/12 lg:text-6xl/20 text-purple-800">Sunday: Payback Time!</h1>
       <article class="font-[GB_Garramond]">
 	<div id="passage">
@@ -39,13 +39,14 @@ Sunday had finally arrived. It was time for Daphne to see how she did with her $
 <script>
 const passageScript = function() {
   const passage = document.getElementById('passage');
-  const madeMoney = `<p>Daphne counted 10 notes and handed them to Mom. Dad exclaimed, "Daphne, this is amazing! You not only paid back the $10, but you made extra! You truly are a natural entrepreneur!  You showed creativity in solving the challenges that came up, and you learned about the value of money!"</p><p>Mom added, "We are incredibly proud of you, Daphne. You were eager to be successful and made smart decisions.  You've earned your 'Entrepreneur' sticker!"</p><p>Daphne beamed, feeling a huge sense of accomplishment.  She realized being an entrepreneur was about more than just money – it was about being exploring ideas, solving problems creatively, and even helping others.  And it was FUN!  She couldn't wait for her next adventure!</p>`;
+  const madeMoney = `<p>Daphne counted 10 notes and handed them to Mom. Dad exclaimed, "Daphne, this is amazing! You not only paid back the $10, but you made extra! You truly are a natural entrepreneur!  You showed creativity in solving the challenges that came up, and you learned about the value of money!"</p><p>Mom added, "We are incredibly proud of you, Daphne. You were eager to be successful and made smart decisions.  You've earned your 'Super Entrepreneur' sticker!"</p><p>Daphne beamed, feeling a huge sense of accomplishment.  She realized being an entrepreneur was about more than just money – it was about being exploring ideas, solving problems creatively, and even helping others.  And it was FUN!  She couldn't wait for her next adventure!</p>`;
   const brokeEven = `<p>"Wow, Daphne, you're right on target!" Mom said as Daphne handed back exactly $10. "You managed to use your money wisely and return it all, just like a real entrepreneur meeting their goals!"</p><p>Dad nodded. "You made some smart choices this week and showed some wonderful creativity."</p><p>Daphne felt proud that she had met the challenge.  She learned that sometimes, success is all about trying new things.  And she definitely had new ideas for the next Entrepreneur Adventure!</p>`;
-  const lostMoney = `<p>"You did a good job trying," said Mom. "You learned a lot about making choices, helping others and what money is used for." We are very proud of you, Daphne girl!"</p><p>Daphne realized that managing money takes practice. Even though she didn't reach her goal this time, she had fun!</p>`;
+  const lostMoney = `<p>"You did a good job trying," said Mom. "You learned a lot about making choices, helping others and what money is used for." We are very proud of you, Daphne girl!"</p><p>Daphne realized that managing money takes practice. Even though she didn't reach her goal this time, she had fun! She couldn't wait to start her next adventure, her mind already buzzing with ideas!</p>`;
   const result = document.createElement('template');
   if ( window.story.state.cash > 10 ) {
     result.innerHTML = madeMoney;
-    window.story.state.cash += -10;      
+    window.story.state.cash += -10;
+    window.story.state.superEntrepreneur = 1;
     window.story.state.cashOperations = [{operation: "subtract", amount: 10, description: "paying back Mom and Dad"}];
   }
   else if ( window.story.state.cash < 10 ) {

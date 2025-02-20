@@ -1,5 +1,5 @@
 function initializePage() {
-  const storageKey = 'story.dtda.v0.5.0';
+  const storageKey = 'story.dtda.v0.6.0';
   
   window.story = window.story || {};
   window.story.state = window.story.state || {};
@@ -16,6 +16,7 @@ function initializePage() {
   window.story.state.marketResearcher = 0; // Market Researcher
   window.story.state.helpingPaws= 0; // Helping Paws
   window.story.state.marketingWizard = 0; //Marketing Wizard
+  window.story.state.superEntrepreneur = 0; //Marketing Wizard  
 
   // history
   window.story.state.history = window.story.state.history || {};
@@ -34,6 +35,7 @@ function initializePage() {
       this.marketResearcher = data.marketResearcher;
       this.helpingPaws = data.helpingPaws;
       this.marketingWizard = data.marketingWizard;
+      this.superEntrepreneur = data.superEntrepreneur;
       this.showCash = data.showCash;
       this.history = data.history;
       console.log("Loaded Story Data: ", data); // Debug log      
@@ -55,6 +57,7 @@ function initializePage() {
       this.marketResearcher = siData.marketResearcher;
       this.helpingPaws = siData.helpingPaws;
       this.marketingWizard = siData.marketingWizard;
+      this.superEntrepreneur = siData.superEntrepreneur;
       this.showCash = siData.showCash;
       this.cashOperations = siData.cashOperations;
       console.log("Loaded saved story data for ", passageIndex); // Debug log      
@@ -74,6 +77,7 @@ function initializePage() {
       marketResearcher: this.marketResearcher,
       helpingPaws: this.helpingPaws,
       marketingWizard: this.marketingWizard,
+      superEntrepreneur: this.superEntrepreneur,
       showCash: this.showCash,
       cashOperations: this.cashOperations
     };
@@ -248,7 +252,8 @@ function populateStickers() {
   const ctStickerCount = window.story.state.creativeThinker;
   const hpStickerCount = window.story.state.helpingPaws;
   const mrStickerCount = window.story.state.marketResearcher;
-  const mwStickerCount = window.story.state.marketingWizard;  
+  const mwStickerCount = window.story.state.marketingWizard;
+  const seStickerCount = window.story.state.superEntrepreneur;
   const stickerContainer = document.getElementById('stickers');
 
   if (stickerContainer) {
@@ -302,8 +307,12 @@ function populateStickers() {
       imgElement.src = './img/mw.svg';
       stickerContainer.appendChild(imgElement);
     }
-
-
+    for (let i = 0; i < seStickerCount; i++) {
+      const imgElement = document.createElement('img');
+      imgElement.className = 'w-[80px] flex-none mr-3 mt-1.5 mb-1.5 drop-shadow-sm';
+      imgElement.src = './img/se.svg';
+      stickerContainer.appendChild(imgElement);
+    }
   }
 }
 
