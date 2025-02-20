@@ -60,6 +60,7 @@ function initializePage() {
       this.superEntrepreneur = siData.superEntrepreneur;
       this.showCash = siData.showCash;
       this.cashOperations = siData.cashOperations;
+      this.hidePiggyBank = siData.hidePiggyBank || false;
       console.log("Loaded saved story data for ", passageIndex); // Debug log      
     }
     else
@@ -79,7 +80,8 @@ function initializePage() {
       marketingWizard: this.marketingWizard,
       superEntrepreneur: this.superEntrepreneur,
       showCash: this.showCash,
-      cashOperations: this.cashOperations
+      cashOperations: this.cashOperations,
+      hidePiggyBank: this.hidePiggyBank || false
     };
     
     if ( passageIndex ) {
