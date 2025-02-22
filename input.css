@@ -704,6 +704,9 @@
   .rounded-xl {
     border-radius: var(--radius-xl);
   }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
   .rounded-t-xl {
     border-top-left-radius: var(--radius-xl);
     border-top-right-radius: var(--radius-xl);
@@ -869,6 +872,11 @@
       padding: calc(var(--spacing) * 10);
     }
   }
+  .md\:rounded-2xl {
+    @media (width >= 48rem) {
+	border-radius: var(--radius-2xl);
+    }
+  }  
   .lg\:text-6xl\/20 {
     @media (width >= 64rem) {
       font-size: var(--text-6xl);

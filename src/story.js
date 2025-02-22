@@ -1,5 +1,5 @@
 function initializePage() {
-  const storageKey = 'story.dtda.v0.6.0';
+  const storageKey = 'story.dtda.v0.6.5';
   
   window.story = window.story || {};
   window.story.state = window.story.state || {};
